@@ -1,847 +1,1065 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrita Coaching | Living Consciously by Design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #8B5FBF;
-            --primary-light: #9D7AC6;
-            --primary-dark: #6A4B8C;
-            --secondary: #FFD166;
-            --accent: #06D6A0;
-            --light: #F8F5FF;
-            --dark: #2D3047;
-            --text: #333333;
-            --text-light: #666666;
-            --transition: all 0.3s ease;
-            --shadow: 0 10px 30px rgba(139, 95, 191, 0.1);
-            --radius: 12px;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            line-height: 1.7;
-            background-color: var(--light);
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1.2rem;
-            color: var(--dark);
-        }
-        
-        h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-        }
-        
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-light);
-            font-size: 1.05rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(139, 95, 191, 0.2);
-        }
-        
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.3);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* Header & Hero */
-        header {
-            background: linear-gradient(135deg, rgba(139, 95, 191, 0.9) 0%, rgba(106, 75, 140, 0.9) 100%), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        .questions {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            padding: 30px;
-            margin: 40px 0;
-            text-align: left;
-        }
-        
-        .questions h3 {
-            color: white;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .questions ul {
-            list-style: none;
-        }
-        
-        .questions li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .questions li:before {
-            content: '•';
-            color: var(--secondary);
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-        
-        .insight-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius);
-            padding: 25px;
-            margin-top: 30px;
-            border-left: 4px solid var(--accent);
-        }
-        
-        /* About Section */
-        .about-section {
-            background-color: white;
-        }
-        
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image {
-            flex: 0 0 350px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-        
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Journey Section */
-        .journey-section {
-            background: linear-gradient(to right, #F8F5FF, #F0EBFF);
-        }
-        
-        .journey-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-        
-        .journey-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 35px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            border-top: 4px solid var(--primary);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(139, 95, 191, 0.15);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        /* For You Section */
-        .foryou-section {
-            background-color: white;
-        }
-        
-        .foryou-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .foryou-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .foryou-item {
-            background: var(--light);
-            padding: 25px;
-            border-radius: var(--radius);
-            text-align: left;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .foryou-icon {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2, .cta-content p {
-            color: white;
-        }
-        
-        .cta-content h2:after {
-            background: var(--secondary);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .form-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            padding: 40px;
-            margin-top: 40px;
-            text-align: left;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-brand {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-        
-        .footer-tagline {
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-        
-        .footer-contact {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .contact-info {
-            margin-bottom: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .contact-icon {
-            margin-right: 12px;
-            color: var(--accent);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .disclaimer {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            opacity: 0.7;
-            line-height: 1.6;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.6;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .about-container {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.4rem;
-            }
-            
-            h2 {
-                font-size: 1.9rem;
-            }
-            
-            header {
-                padding: 80px 0;
-            }
-            
-            .questions {
-                padding: 20px;
-            }
-            
-            .form-container {
-                padding: 25px;
-            }
-        }
-        
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Amrita Coaching | Living Consciously by Design</title>
+  <link rel="icon" type="image/jpeg" href="/image.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #faf7f0;
+      color: #1e2a3a;
+      line-height: 1.5;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* ===== STICKY HEADER ===== */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px ;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #faf7f0; 
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      border-bottom: 1px solid rgba(198, 167, 94, 0.2);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      transition: padding 0.2s;
+    }
+
+    .logo img {
+      height: 52px;
+      display: block;
+    }
+
+    .header-contact {
+      font-weight: 500;
+      color: #2c4053;
+      background: rgba(255,255,255,0.7);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 1rem;
+      border: 1px solid #e5d9c6;
+      white-space: nowrap;
+    } 
+
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===== REDESIGNED HERO SECTION ===== */
+    .hero-section {
+      margin: 24px auto 40px;
+      padding: 0 20px;
+      max-width: 1400px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 48px;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
+      height: 600px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image-wrapper:hover .hero-image {
+      transform: scale(1.02);
+    }
+
+    .hero-text-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-text-overlay h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 90px);
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-decoration {
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #eac67e, #fff, #eac67e, transparent);
+      margin: 8px auto 0;
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { width: 0; opacity: 0; }
+      to { width: 200px; opacity: 1; }
+    }
+
+    /* ===== REDESIGNED CARDS SECTION ===== */
+    .ready-cards-section {
+      padding: 40px 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      color: #1e2a3a;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #c6a75e;
+      margin: 16px auto 0;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #5a6b7a;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 40px 0 30px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 32px;
+      width: calc(33.33% - 20px);
+      max-width: 380px;
+      min-width: 300px;
+      box-shadow: 0 18px 36px -10px rgba(0,0,0,0.05), 0 6px 12px rgba(0,0,0,0.02);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.5);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 40px -12px rgba(97,78,38,0.2);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 28px 24px 32px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: #f0ede4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-icon i {
+      font-size: 24px;
+      color: #c6a75e;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #1f2e41;
+      line-height: 1.6;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* ===== COMPLETELY REDESIGNED WIRING SECTION ===== */
+    .wiring-section {
+      margin: 70px 0;
+      position: relative;
+      border-radius: 48px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1f2a44 0%, #2a3b5c 100%);
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.3);
+    }
+
+    .wiring-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wiring-left {
+      flex: 1.2;
+    }
+
+    .wiring-right {
+      flex: 0.8;
+      position: relative;
+    }
+
+    .wiring-icon-box {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      padding: 30px;
+      border: 1px solid rgba(234, 198, 126, 0.3);
+    }
+
+    .wiring-icon-box i {
+      font-size: 60px;
+      color: #eac67e;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .wiring-icon-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .wiring-quote {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #eac67e;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.4;
+      margin-bottom: 25px;
+      position: relative;
+      padding-left: 30px;
+      border-left: 4px solid #eac67e;
+    }
+
+    .wiring-quote i {
+      color: #eac67e;
+      opacity: 0.3;
+      font-size: 2rem;
+      position: absolute;
+      left: -10px;
+      top: -10px;
+    }
+
+    .wiring-description {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .wiring-highlight {
+      background: rgba(234, 198, 126, 0.15);
+      padding: 20px 25px;
+      border-radius: 24px;
+      margin-top: 25px;
+      border: 1px solid rgba(234, 198, 126, 0.3);
+    }
+
+    .wiring-highlight p {
+      color: white;
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    .wiring-highlight strong {
+      color: #eac67e;
+      font-weight: 600;
+    }
+
+    .wiring-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: radial-gradient(rgba(234, 198, 126, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .wiring-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      border: 3px solid rgba(234, 198, 126, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .wiring-image:hover {
+      transform: scale(1.02);
+    }
+
+    .wiring-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: #eac67e;
+      color: #1f2a44;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+      border: 3px solid #fff;
+    }
+
+    .wiring-badge i {
+      margin-right: 8px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1e2a3a;
+      line-height: 1.2;
+    }
+
+    h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 2px;
+      background: #c6a75e;
+      margin-top: 14px;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: #2a3b4c;
+      margin-bottom: 28px;
+    }
+
+    .journey-section {
+      background: #1f2a44;
+      color: white;
+      border-radius: 48px;
+      padding: 60px 56px;
+      margin: 60px 0;
+    }
+
+    .journey-section h2 {
+      color: white;
+    }
+
+    .journey-section h2:after {
+      background: #eac67e;
+    }
+
+    .journey-section h3 {
+      color: #f0e2cf;
+    }
+
+    ul {
+      list-style: none;
+      margin: 36px 0 16px;
+    }
+
+    ul li {
+      margin-bottom: 18px;
+      padding-left: 32px;
+      position: relative;
+      font-size: 1.15rem;
+      color: #2c3e4f;
+      line-height: 1.6;
+    }
+
+    .journey-section ul li {
+      color: #f3efe7;
+      font-weight: 300;
+    }
+
+    ul li:before {
+      content: "•";
+      color: #c6a75e;
+      font-size: 2.2rem;
+      position: absolute;
+      left: 0;
+      top: -10px;
+    }
+
+    .journey-section ul li:before {
+      color: #eac67e;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      margin: 70px 0 50px;
+    }
+
+    .about-section > div {
+      flex: 1.2;
+    }
+
+    .about-section .small-img {
+      flex: 0.8;
+      max-width: 380px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 18px 32px -8px rgba(0,0,0,0.08);
+    }
+
+    .foryou-section {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      background: white;
+      border-radius: 48px;
+      padding: 56px 52px;
+      margin: 60px 0;
+    }
+
+    .foryou-section .small-img {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 18px 28px -6px rgba(0,0,0,0.06);
+    }
+
+    .foryou-section div {
+      flex: 1;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: #f0ede4;
+      border-radius: 48px;
+      padding: 70px 40px;
+      margin: 60px 0 40px;
+    }
+
+    .cta-section h2:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section p {
+      font-size: 1.3rem;
+      color: #253746;
+      max-width: 600px;
+      margin: 20px auto 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #1f2a44;
+      color: white;
+      padding: 18px 54px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 28px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      min-width: 280px;
+      letter-spacing: 0.3px;
+      box-shadow: 0 12px 20px -10px #0f1a2e50;
+    }
+
+    .btn:hover {
+      background: #2f3b6e;
+      transform: scale(1.02);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 36px;
+      line-height: 64px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background: #20B859;
+      transform: scale(1.08);
+    }
+
+    .whatsapp-float i {
+      font-size: 38px;
+    }
+
+    /* POPUP */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+
+    .popup-form {
+      background: white;
+      padding: 45px 40px 40px;
+      border-radius: 48px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 35px 60px -20px rgba(0,0,0,0.4);
+      position: relative;
+      animation: fadeInUp 0.3s ease;
+    }
+
+    .popup-form h3 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .popup-form p {
+      font-size: 1.1rem;
+      color: #5a6b7a;
+      margin-bottom: 28px;
+    }
+
+    .popup-form input, 
+    .popup-form textarea {
+      width: 100%;
+      padding: 16px 22px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd2bf;
+      border-radius: 50px;
+      font-size: 1rem;
+      background: #fcfaf5;
+      transition: 0.2s;
+    }
+
+    .popup-form textarea {
+      border-radius: 30px;
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .popup-form input:focus,
+    .popup-form textarea:focus {
+      outline: none;
+      border-color: #c6a75e;
+      box-shadow: 0 0 0 3px rgba(198,167,94,0.2);
+    }
+
+    .popup-form .btn-submit {
+      background: #1f2a44;
+      color: white;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .popup-form .btn-submit:hover {
+      background: #2f3b6e;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-size: 40px;
+      cursor: pointer;
+      color: #948b7a;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .close-popup:hover {
+      color: #1e2a3a;
+    }
+
+    .hidden-message {
+      display: none;
+      text-align: center;
+      color: #1f2a44;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+.footer-design a {
+  color: inherit;           /* same color as parent text */
+  text-decoration: none;    /* remove underline */
+  transition: color 0.2s ease;
+}
+
+.footer-design a:hover {
+  color: #2f3b6e;           /* bluish on hover */
+  text-decoration: none;    /* ensure no underline */
+}
+
+.footer-design a:visited {
+  color: inherit;           /* prevent purple after click */
+}
+
+    .disclaimer {
+      font-size: 0.9rem;
+      color: #54626f;
+      padding: 48px 40px 30px;
+      max-width: 1200px;
+      margin: 30px auto 10px;
+      line-height: 1.7;
+      border-top: 1px solid #dad3c2;
+    }
+
+    .footer {
+      border-top: 1px solid #d9d0be;
+      padding: 32px 40px 28px;
+      background: #faf7f0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1150px;
+      margin: 0 auto;
+      gap: 16px;
+      color: #4d4f53;
+      font-size: 0.95rem;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ===== FULLY RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 32px; }
+      h2 { font-size: 2.4rem; }
+      .site-header { padding: 16px 32px; }
+      .hero-section { margin-top: 20px; }
+      .hero-image-wrapper { height: 500px; }
+      .wiring-content { padding: 40px 30px; flex-direction: column; }
+      .wiring-right { width: 100%; max-width: 500px; margin: 0 auto; }
+    }
+
+    @media (max-width: 840px) {
+      .cards-wrapper { gap: 20px; }
+      .card { width: calc(50% - 12px); min-width: 280px; }
+      
+      /* Modified about section for mobile - image on top */
+      .about-section { 
+        flex-direction: column-reverse; 
+        text-align: left; 
+        gap: 32px; 
+      }
+      
+      .about-section .small-img { 
+        max-width: 400px; 
+        width: 100%; 
+        margin: 0 auto; 
+      }
+      
+      /* Smaller text in about section on mobile */
+      .about-section div p { 
+        font-size: 1.1rem !important; 
+        line-height: 1.6 !important;
+      }
+      
+      .foryou-section { 
+        flex-direction: column; 
+        text-align: left; 
+        gap: 32px; 
+        padding: 40px 32px; 
+      }
+      
+      .foryou-section .small-img { 
+        max-width: 400px; 
+        width: 100%; 
+        margin: 0 auto; 
+      }
+      
+      .hero-section { margin-top: 18px; }
+      .hero-image-wrapper { height: 450px; }
+      .wiring-quote { font-size: 1.5rem; }
+      .wiring-badge { position: relative; bottom: 0; right: 0; margin-top: 20px; display: inline-block; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      h2 { font-size: 2.2rem; }
+      
+      .hero-section {
+        margin-top: 28px;
+        padding: 0 8px;
+      }
+      
+      .hero-image-wrapper { 
+        border-radius: 36px;
+        height: 400px;
+      }
+      
+      .hero-text-overlay h1 { 
+        font-size: clamp(40px, 13vw, 60px); 
+        margin-bottom: 16px;
+      } 
+      
+      .hero-decoration { 
+        width: 150px; 
+      }
+      
+      @keyframes slideIn {
+        from { width: 0; opacity: 0; }
+        to { width: 150px; opacity: 1; }
+      }
+      
+      .card { width: 100%; max-width: 400px; }
+      .cards-wrapper { align-items: center; }
+      .section-title h2 { font-size: 2.5rem; }
+      .wiring-content { padding: 30px 20px; }
+      .wiring-icon-box { padding: 20px; }
+      .wiring-icon-box h4 { font-size: 1.6rem; }
+      .wiring-quote { font-size: 1.3rem; padding-left: 20px; }
+      .wiring-image { height: 300px; }
+      .journey-section { padding: 44px 28px; border-radius: 36px; }
+      .btn { min-width: 240px; padding: 16px 36px; }
+      .cta-section { padding: 50px 20px; }
+      .disclaimer { padding: 40px 20px 20px; }
+      .whatsapp-float { width: 54px; height: 54px; bottom: 20px; right: 20px; }
+      .whatsapp-float i { font-size: 32px; }
+      .site-header { padding: 12px 20px; }
+      .logo img { height: 50px; }
+      .header-contact { padding: 6px 12px; font-size: 0.9rem; }
+      
+      /* Even smaller text for very small screens */
+      .about-section div p { 
+        font-size: 1rem !important; 
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-section { margin-top: 24px; }
+      .hero-image-wrapper { height: 350px; }
+      .hero-text-overlay h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.9rem; }
+      .section-title h2 { font-size: 2.2rem; }
+      .container { padding: 0 16px; }
+      .footer-content { flex-direction: column; text-align: center; } 
+      .header-contact { font-size: 0.95rem; }
+      .wiring-image { height: 250px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header & Hero -->
-    <header>
-        <div class="container">
-            <div class="hero-content">
-                <h1>AMRITA COACHING</h1>
-                <p class="tagline">Living Consciously by Design</p>
-                <a href="#cta" class="btn">Ready for Change?</a>
-                
-                <div class="questions">
-                    <h3>Do you feel...</h3>
-                    <ul>
-                        <li>Like no matter how hard you try, something invisible keeps holding you back?</li>
-                        <li>Old emotional patterns or doubts resurface the moment you try to move forward and keep you stuck in the same old ways?</li>
-                        <li>Limiting beliefs or emotional reactions override what you consciously want to achieve?</li>
-                    </ul>
-                </div>
-                
-                <div class="insight-box">
-                    <p><strong>You don't have a "willpower" problem, you have a "wiring" problem.</strong> True manifestation isn't just about positive thinking - it's about aligning your energy with your big dreams.</p>
-                    <p>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment, this coaching is designed to help you bypass the "survival brain" and unleash your inner power to live life on your own terms.</p>
-                </div>
-            </div>
-        </div>
-    </header>
+ <header class="site-header">
+    <div class="logo">
+      <a href="/"> <img src="/image.png" alt="Amrita Coaching"></a>
+     
+    </div>
+    <div class="header-contact"> 
+        AMRITA COACHING 
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>Hi, I'm <strong>Amrita Halaby</strong>, a certified HeartMath coach and empowerment guide. My work is rooted in neuroscience, energetic alignment, and the principles of Quantum Physics.</p>
-                    <p>I help you understand how your thoughts and awareness shape your reality. Through awareness, self-empowerment and embodied change, I walk you through a journey of remembering your true power so you can live consciously by design.</p>
-                    <p>My approach combines ancient wisdom with modern science to help you create lasting transformation from the inside out.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://i.pinimg.com/736x/a9/0c/95/a90c959d81b6def4b1571bf775a1d199.jpg" alt="Amrita Halaby - Empowerment Coach">
-                </div>
+  <!-- REDESIGNED HERO with animation -->
+  <section class="hero-section">
+    <div class="hero-image-wrapper">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&auto=format" alt="Peaceful meditation" loading="lazy">
+      <div class="hero-text-overlay">
+        <h1>Living Consciously<br>by Design</h1>
+        <div class="hero-decoration"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- REDESIGNED CARDS SECTION with images -->
+    <section class="ready-cards-section">
+      <div class="section-title">
+        <h2>Ready for Change?</h2>
+        <div class="section-subtitle">Three questions to reflect on your journey</div>
+      </div>
+      
+      <div class="cards-wrapper">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format" alt="Person reflecting">
+          </div>
+          <div class="card-content">
+            <div class="card-icon">
+              <i class="fas fa-question-circle"></i>
             </div>
+            <p>Do you feel like no matter how hard you try, something invisible keeps holding you back?</p>
+          </div>
         </div>
+        
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&auto=format" alt="Emotional patterns">
+          </div>
+          <div class="card-content">
+            <div class="card-icon">
+              <i class="fas fa-redo-alt"></i>
+            </div>
+            <p>Do old emotional patterns or doubts resurface the moment you try to move forward and keep you stuck in the same old ways?</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format" alt="Limiting beliefs">
+          </div>
+          <div class="card-content">
+            <div class="card-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <p>Do limiting beliefs or emotional reactions override what you consciously want to achieve?</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Journey Section -->
+    <!-- COMPLETELY REDESIGNED WIRING SECTION -->
+    <section class="wiring-section">
+      <div class="wiring-pattern"></div>
+      <div class="wiring-content">
+        <div class="wiring-left">
+         
+          
+          <div class="wiring-quote">
+            <i class="fas fa-quote-left"></i>
+            You don't have a "willpower" problem, you have a "wiring" problem.
+          </div>
+          
+          <div class="wiring-description">
+            <p>True manifestation isn't just about positive thinking – it's about aligning your energy with your big dreams.</p>
+          </div>
+          
+          <div class="wiring-highlight">
+            <p><strong>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment,</strong> this coaching is designed to help you bypass the "survival brain" and unleash your inner power to live life on your own terms.</p>
+          </div>
+          
+           
+        </div>
+        
+        <div class="wiring-right">
+          <img class="wiring-image" src="https://i.pinimg.com/1200x/40/70/ff/4070ff7d9b93a990f1ffcea018c7e938.jpg" alt="Neural pathways and consciousness">
+        </div>
+      </div>
+    </section>
+
     <section class="journey-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Your Coaching Journey</h2>
-                <p>A Path Tailored for You</p>
-            </div>
-            
-            <div class="journey-features">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>Personalized 1:1 Coaching</h3>
-                    <p>Focused entirely on your unique goals and journey. We work together online in a flexible schedule that fits your life.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Science-Based Approach</h3>
-                    <p>Understanding how your mind, emotions, and beliefs literally shape your reality through neuroscience and quantum principles.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Practical Tools</h3>
-                    <p>Move beyond "wishing" and "hoping" with practical tools to create permanent conscious inner shifts that last.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Safe, Supportive Space</h3>
-                    <p>A non-judgemental space for you to explore, heal and grow at your own pace with compassionate guidance.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3>Live by Design</h3>
-                    <p>Move from "reacting" to intentionally creating your future and living your life by conscious design.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Lasting Transformation</h3>
-                    <p>Create deep, sustainable change that rewires your neural pathways for lasting personal growth and fulfillment.</p>
-                </div>
-            </div>
-        </div>
+      <h2>Your Coaching Journey</h2>
+      <h3>A Path Tailored for You</h3>
+      <ul>
+        <li>1:1 Personalized online coaching focused entirely on your unique goals</li>
+        <li>Understanding how your mind, emotions, and beliefs literally shape your reality</li>
+        <li>Move beyond "wishing" and "hoping" with practical tools based on neuroscience, quantum physics, and energetic alignment to create permanent conscious inner shifts</li>
+        <li>A safe, non-judgemental space for you to explore, heal and grow</li>
+        <li>Living by design: Move from "reacting" to intentionally creating your future and living your life by design</li>
+      </ul>
     </section>
 
-    <!-- For You Section -->
+    <section class="about-section">
+      <div>
+        <h2>About Me</h2>
+        <p style="font-size: 1.2rem; line-height: 1.7; color: #2c4053;">Hi, I'm <strong>Amrita Halaby</strong>, a certified HeartMath coach and empowerment guide. My work is rooted in neuroscience, energetic alignment, and the principles of Quantum Physics.</p>
+        <p style="font-size: 1.2rem; line-height: 1.7; color: #2c4053; margin-top: 24px;">I help you understand how your thoughts and awareness shape your reality. Through awareness, self-empowerment and embodied change, I walk you through a journey of remembering your true power so you can live consciously by design.</p>
+      </div>
+      <img class="small-img" src="https://i.pinimg.com/736x/8c/e8/99/8ce899d6db3ac3bbfa4d24e0707817e9.jpg" alt="nature connection" loading="lazy">
+    </section>
+
     <section class="foryou-section">
-        <div class="container">
-            <div class="foryou-container">
-                <div class="section-title">
-                    <h2>This Coaching is for You if:</h2>
-                </div>
-                
-                <div class="foryou-list">
-                    <div class="foryou-item">
-                        <div class="foryou-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4>Open to Growth</h4>
-                            <p>You are open to personal growth and self-development</p>
-                        </div>
-                    </div>
-                    
-                    <div class="foryou-item">
-                        <div class="foryou-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4>Seeking Lasting Change</h4>
-                            <p>You are seeking real and lasting change rather than quick fixes</p>
-                        </div>
-                    </div>
-                    
-                    <div class="foryou-item">
-                        <div class="foryou-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4>Ready for Transformation</h4>
-                            <p>You are ready for inner transformation and discovering your true power</p>
-                        </div>
-                    </div>
-                    
-                    <div class="foryou-item">
-                        <div class="foryou-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4>Embody Your Highest Self</h4>
-                            <p>You want to embody the highest version of yourself and live consciously by design</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <img class="small-img" src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=600&auto=format" alt="growth" loading="lazy">
+       <div>
+        <h2>This Coaching is for You if:</h2>
+        <ul>
+          <li>You are open to personal growth and self-development</li>
+          <li>You are seeking real and lasting change rather than quick fixes</li>
+          <li>You are ready for inner transformation and discovering your true power</li>
+          <li>You want to embody the highest version of yourself and live consciously by design</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to start your journey?</h2>
-                <p>Book a free clarity call to explore whether this coaching is a right fit for you. Let's connect and discuss how we can work together to create the transformation you're seeking.</p>
-                
-                <div class="form-container">
-                    <h3>Schedule Your Free Clarity Call</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number (Optional)</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="+1 (123) 456-7890">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">What brings you to coaching? (Optional)</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Tell me a little about what you'd like to achieve through coaching..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Request</button>
-                        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">You'll receive a confirmation email to schedule your free call.</p>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <section class="cta-section">
+      <h2>Ready to start your journey?</h2>
+      <p>Book a free clarity call to explore whether this coaching is a right fit for you.</p>
+      <button class="btn" id="bookCallBtn">Book Your Free Call</button>
     </section>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-brand">
-                    <div class="footer-logo">AMRITA COACHING</div>
-                    <p class="footer-tagline">Living Consciously by Design</p>
-                    <p>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment to help you unleash your inner power and live life on your own terms.</p>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contact</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <span>amritaunlimited@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <span>Online Coaching Worldwide</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#cta" class="btn btn-secondary">Book Free Call</a>
-                </div>
-            </div>
-            
-            <div class="disclaimer">
-                <h4>A Note for You</h4>
-                <p>The guidance, coaching sessions, and resources provided through this website are for educational and personal development purposes only. They are not a substitute for professional medical, psychological, or financial advice.</p>
-                <p>While the practices and tools shared are designed to support inner growth and conscious living, individual results may vary. By engaging with this site or enrolling in coaching, you acknowledge that outcomes depend on your choices and commitment. Coaching is offered to empower and support you, but no specific results are guaranteed.</p>
-                <p>Your journey is unique — honor your pace and your path.</p>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2026 Amrita Coaching. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+  <div class="disclaimer">
+    <strong>A Note for You</strong><br><br>
+    The guidance, coaching sessions, and resources provided through this website are for educational and personal development purposes only. They are not a substitute for professional medical, psychological, or financial advice.
+    <br><br>While the practices and tools shared are designed to support inner growth and conscious living, individual results may vary. By engaging with this site or enrolling in coaching, you acknowledge that outcomes depend on your choices and commitment. Coaching is offered to empower and support you, but no specific results are guaranteed.
+    <br><br>Your journey is unique — honor your pace and your path.
+  </div>
 
-    <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real implementation, you would send this data to your server
-            // For now, we'll just show a success message
-            alert(`Thank you, ${name}! Your request has been sent to Amrita. You will receive an email at ${email} to schedule your free clarity call.`);
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            // In a real implementation, you would send the data via email or to a backend
-            // Example using mailto (simple approach):
-            const subject = `Free Clarity Call Request from ${name}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AMessage: ${message}`;
-            window.open(`mailto:amritaunlimited@gmail.com?subject=${subject}&body=${body}`);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe elements for animation
-        document.querySelectorAll('.feature-card').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Add animation to foryou items
-        document.querySelectorAll('.foryou-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-        
-        // Animate foryou items when they come into view
-        const foryouObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if(entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.foryou-item').forEach(el => {
-            foryouObserver.observe(el);
-        });
-    </script>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-copy">© 2026 Amrita Coaching. All rights reserved.</div>
+      <div class="footer-design">Designed with<a href="https://www.fnamarketingsolutions.com/" target="_blank" rel="noopener noreferrer">
+  FNA Marketing Solutions
+</a>
+</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/1234567890?text=Hi%20Amrita%2C%20I'm%20interested%20in%20your%20coaching" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-form">
+      <span class="close-popup" id="closePopupBtn">&times;</span>
+      <h3>Let's Connect</h3>
+      <p>Book your free clarity call — fill in your details</p>
+      <form id="clarityForm">
+        <input type="text" placeholder="Your name *" required>
+        <input type="tel" placeholder="Phone number *" required>
+        <input type="email" placeholder="Email (optional)">
+        <textarea placeholder="What brings you here? (main purpose) *" required></textarea>
+        <button type="submit" class="btn-submit">Request Call</button>
+      </form>
+      <div class="hidden-message" id="thankyouMsg">✨ Thanks! We'll connect soon.</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const bookBtn = document.getElementById('bookCallBtn');
+      const popup = document.getElementById('popupOverlay');
+      const closeBtn = document.getElementById('closePopupBtn');
+      const form = document.getElementById('clarityForm');
+      const thankyou = document.getElementById('thankyouMsg');
+
+      bookBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        popup.style.display = 'flex';
+        if (form.style.display === 'none') {
+          form.style.display = 'block';
+          thankyou.style.display = 'none';
+        }
+        form.reset();
+      });
+
+      function closePopup() { popup.style.display = 'none'; }
+
+      closeBtn.addEventListener('click', closePopup);
+      popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+        setTimeout(closePopup, 2000);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.style.display === 'flex') closePopup();
+      });
+    })();
+  </script>
 </body>
 </html>
