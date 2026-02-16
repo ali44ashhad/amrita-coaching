@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrita Coaching | Transform Your Life Consciously</title>
+    <title>Amrita Coaching | Living Consciously by Design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
         * {
@@ -15,92 +15,82 @@
         }
         
         :root {
-            --gold: #D4AF37;
-            --gold-light: #E8D189;
-            --gold-dark: #B8860B;
-            --deep-purple: #2D1B69;
-            --purple: #4A2C8C;
-            --light-purple: #7B68EE;
-            --cream: #FFF8F0;
-            --charcoal: #1A1A2E;
+            --primary: #8B5FBF;
+            --primary-light: #9D7AC6;
+            --primary-dark: #6A4B8C;
+            --secondary: #FFD166;
+            --accent: #06D6A0;
+            --light: #F8F5FF;
+            --dark: #2D3047;
             --text: #333333;
             --text-light: #666666;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(139, 95, 191, 0.1);
             --radius: 12px;
-            --shadow: 0 20px 40px rgba(45, 27, 105, 0.1);
-            --glow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text);
-            line-height: 1.8;
-            background-color: var(--cream);
+            line-height: 1.7;
+            background-color: var(--light);
             overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--charcoal);
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
         }
         
         h1 {
-            font-size: 4.2rem;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, var(--gold), var(--gold-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
         }
         
         h2 {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             position: relative;
             display: inline-block;
-            color: var(--deep-purple);
         }
         
         h2:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -8px;
             left: 0;
-            width: 80px;
+            width: 60px;
             height: 3px;
-            background: linear-gradient(to right, var(--gold), var(--gold-light));
+            background: var(--accent);
         }
         
         h3 {
-            font-size: 2.2rem;
-            color: var(--purple);
+            font-size: 1.8rem;
         }
         
         p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--text-light);
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-size: 1.05rem;
         }
         
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--primary);
             color: white;
-            padding: 18px 40px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -108,48 +98,29 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn:hover:before {
-            left: 100%;
+            box-shadow: 0 4px 15px rgba(139, 95, 191, 0.2);
         }
         
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.3);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            box-shadow: none;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
         
         .btn-secondary:hover {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--primary);
             color: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 50px;
         }
         
         .section-title h2:after {
@@ -159,128 +130,94 @@
         
         /* Header & Hero */
         header {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(45, 27, 105, 0.9) 100%), url('https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background: linear-gradient(135deg, rgba(139, 95, 191, 0.9) 0%, rgba(106, 75, 140, 0.9) 100%), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
-            padding: 40px 0 100px;
+            padding: 100px 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
         }
         
-        .header-content {
-            max-width: 1200px;
+        .hero-content {
+            max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
         
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 700;
-            margin-bottom: 80px;
-            display: inline-block;
-        }
-        
         .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            color: var(--cream);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .hero-text {
-            max-width: 800px;
-            margin-bottom: 50px;
-        }
-        
-        .hero-text p {
-            color: rgba(255, 248, 240, 0.9);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
         
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(74, 44, 140, 0.2));
-            border-radius: var(--radius);
-            padding: 40px;
-            margin: 40px 0;
-            border-left: 5px solid var(--gold);
+        .questions {
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 40px 0;
+            text-align: left;
         }
         
-        .highlight-box h3 {
-            color: var(--gold-light);
+        .questions h3 {
+            color: white;
             margin-bottom: 20px;
+            text-align: center;
         }
         
-        .questions-list {
+        .questions ul {
             list-style: none;
-            margin: 25px 0;
         }
         
-        .questions-list li {
+        .questions li {
             margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
-            color: var(--cream);
         }
         
-        .questions-list li:before {
-            content: '✦';
-            color: var(--gold);
+        .questions li:before {
+            content: '•';
+            color: var(--secondary);
+            font-size: 1.5rem;
             position: absolute;
             left: 0;
-            top: 0;
+            top: -5px;
         }
         
-        .gold-text {
-            color: var(--gold);
-            font-weight: 600;
+        .insight-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 4px solid var(--accent);
         }
         
         /* About Section */
         .about-section {
             background-color: white;
-            position: relative;
         }
         
         .about-container {
             display: flex;
             align-items: center;
-            gap: 80px;
+            gap: 60px;
             flex-wrap: wrap;
         }
         
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
         .about-image {
-            flex: 0 0 450px;
+            flex: 0 0 350px;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .about-image:before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            border: 2px solid var(--gold);
-            border-radius: var(--radius);
-            z-index: -1;
         }
         
         .about-image img {
@@ -294,124 +231,42 @@
             transform: scale(1.05);
         }
         
-        .about-text {
-            flex: 1;
-            min-width: 300px;
+        /* Journey Section */
+        .journey-section {
+            background: linear-gradient(to right, #F8F5FF, #F0EBFF);
         }
         
-        .signature {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-top: 30px;
-            font-style: italic;
+        .journey-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
         }
         
-        /* Approach Section */
-        .approach-section {
-            background: linear-gradient(135deg, var(--cream) 0%, #F5F0FF 100%);
-            position: relative;
-        }
-        
-        .approach-container {
+        .journey-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .approach-card {
+        .feature-card {
             background: white;
-            padding: 50px 40px;
+            padding: 35px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
-            position: relative;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
+            border-top: 4px solid var(--primary);
         }
         
-        .approach-card:hover {
-            transform: translateY(-15px);
-            border-top: 5px solid var(--gold);
-            border-bottom: 5px solid var(--light-purple);
-            box-shadow: 0 30px 60px rgba(45, 27, 105, 0.15);
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139, 95, 191, 0.15);
         }
         
-        .approach-icon {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 25px;
-            height: 80px;
-            width: 80px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(74, 44, 140, 0.1));
-            border-radius: 50%;
-        }
-        
-        /* Journey Section */
-        .journey-section {
-            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--purple) 100%);
-            color: white;
-        }
-        
-        .journey-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .journey-content h2, .journey-content p {
-            color: white;
-        }
-        
-        .journey-content h2:after {
-            background: var(--gold);
-        }
-        
-        .journey-steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 60px 0;
-            position: relative;
-        }
-        
-        .journey-steps:before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 50px;
-            right: 50px;
-            height: 2px;
-            background: rgba(212, 175, 55, 0.5);
-            z-index: 1;
-        }
-        
-        .step {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 0 15px;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 0 auto 25px;
-            box-shadow: var(--glow);
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
         
         /* For You Section */
@@ -420,49 +275,43 @@
         }
         
         .foryou-container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
         
         .foryou-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .foryou-item {
-            background: linear-gradient(135deg, #FAF5FF, #F0EBFF);
-            padding: 40px 35px;
+            background: var(--light);
+            padding: 25px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-left: 5px solid var(--gold);
-        }
-        
-        .foryou-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(45, 27, 105, 0.15);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
         }
         
         .foryou-icon {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
         }
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(45, 27, 105, 0.9) 100%), url('https://images.unsplash.com/photo-1516627145497-ae4fa87d5d38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
             text-align: center;
         }
         
         .cta-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
         
@@ -471,180 +320,154 @@
         }
         
         .cta-content h2:after {
-            background: var(--gold);
+            background: var(--secondary);
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .form-container {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: var(--radius);
-            padding: 50px;
-            margin-top: 50px;
+            padding: 40px;
+            margin-top: 40px;
             text-align: left;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 500;
-            color: var(--gold-light);
-            letter-spacing: 1px;
         }
         
         .form-control {
             width: 100%;
-            padding: 18px 22px;
+            padding: 14px 18px;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
         }
         
         /* Footer */
         footer {
-            background-color: var(--charcoal);
+            background-color: var(--dark);
             color: white;
-            padding: 80px 0 40px;
+            padding: 60px 0 30px;
         }
         
         .footer-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 60px;
-            margin-bottom: 50px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-brand {
             flex: 1;
-            min-width: 350px;
+            min-width: 300px;
         }
         
         .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
         }
         
         .footer-tagline {
             opacity: 0.8;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
         
         .footer-contact {
             flex: 1;
-            min-width: 350px;
+            min-width: 300px;
         }
         
         .contact-info {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
         }
         
         .contact-icon {
-            margin-right: 15px;
-            color: var(--gold);
-            font-size: 1.2rem;
-            width: 30px;
+            margin-right: 12px;
+            color: var(--accent);
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(212, 175, 55, 0.1);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: var(--gold);
+            color: white;
             transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         
         .social-link:hover {
-            background: var(--gold);
-            color: var(--charcoal);
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
+            background: var(--primary);
+            transform: translateY(-3px);
         }
         
         .disclaimer {
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
             opacity: 0.7;
-            line-height: 1.8;
-            max-width: 1000px;
-            margin: 0 auto;
+            line-height: 1.6;
         }
         
         .copyright {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 0.9rem;
-            opacity: 0.5;
-            letter-spacing: 1px;
+            opacity: 0.6;
         }
         
         /* Responsive Styles */
-        @media (max-width: 1200px) {
+        @media (max-width: 992px) {
             h1 {
-                font-size: 3.5rem;
-            }
-            
-            h2 {
                 font-size: 2.8rem;
             }
             
-            .about-image {
-                flex: 0 0 400px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-            
             h2 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
             
             section {
-                padding: 80px 0;
+                padding: 60px 0;
             }
             
             .about-container {
@@ -654,104 +477,63 @@
             .about-image {
                 order: -1;
             }
-            
-            .journey-steps:before {
-                display: none;
-            }
-            
-            .journey-steps {
-                flex-direction: column;
-                gap: 40px;
-            }
         }
         
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.4rem;
             }
             
             h2 {
-                font-size: 2rem;
+                font-size: 1.9rem;
+            }
+            
+            header {
+                padding: 80px 0;
+            }
+            
+            .questions {
+                padding: 20px;
             }
             
             .form-container {
-                padding: 30px;
-            }
-            
-            .approach-card, .foryou-item {
-                padding: 30px 25px;
-            }
-            
-            .footer-brand, .footer-contact {
-                min-width: 100%;
+                padding: 25px;
             }
         }
         
         /* Animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        /* Decorative Elements */
-        .floating-element {
-            position: absolute;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            filter: blur(40px);
-            z-index: 1;
-        }
-        
-        .floating-1 {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -150px;
-        }
-        
-        .floating-2 {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            left: -100px;
+            animation: fadeIn 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
     <!-- Header & Hero -->
     <header>
-        <div class="floating-element floating-1"></div>
-        <div class="floating-element floating-2"></div>
-        
         <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Amrita Coaching</a>
+            <div class="hero-content">
+                <h1>AMRITA COACHING</h1>
+                <p class="tagline">Living Consciously by Design</p>
+                <a href="#cta" class="btn">Ready for Change?</a>
                 
-                <h1>Living Consciously by Design</h1>
-                <p class="tagline">Transform Your Reality Through Conscious Creation</p>
-                
-                <div class="hero-text">
-                    <p>True manifestation isn't just about positive thinking—it's about aligning your energy with your big dreams. Rooted in Neuroscience, Quantum Physics, and Energetic Alignment, this coaching is designed to help you bypass the "survival brain" and unleash your inner power to live life on your own terms.</p>
-                    
-                    <div class="highlight-box">
-                        <h3>Ready for Change?</h3>
-                        <p class="gold-text">You don't have a "willpower" problem, you have a "wiring" problem.</p>
-                        
-                        <ul class="questions-list">
-                            <li>Do you feel like no matter how hard you try, something invisible keeps holding you back?</li>
-                            <li>Do old emotional patterns or doubts resurface the moment you try to move forward?</li>
-                            <li>Do limiting beliefs or emotional reactions override what you consciously want to achieve?</li>
-                        </ul>
-                        
-                        <p>If you answered yes to any of these, it's time for a transformation that goes deeper than surface-level change.</p>
-                    </div>
+                <div class="questions">
+                    <h3>Do you feel...</h3>
+                    <ul>
+                        <li>Like no matter how hard you try, something invisible keeps holding you back?</li>
+                        <li>Old emotional patterns or doubts resurface the moment you try to move forward and keep you stuck in the same old ways?</li>
+                        <li>Limiting beliefs or emotional reactions override what you consciously want to achieve?</li>
+                    </ul>
                 </div>
                 
-                <a href="#cta" class="btn">Begin Your Transformation Journey</a>
+                <div class="insight-box">
+                    <p><strong>You don't have a "willpower" problem, you have a "wiring" problem.</strong> True manifestation isn't just about positive thinking - it's about aligning your energy with your big dreams.</p>
+                    <p>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment, this coaching is designed to help you bypass the "survival brain" and unleash your inner power to live life on your own terms.</p>
+                </div>
             </div>
         </div>
     </header>
@@ -760,60 +542,14 @@
     <section class="about-section">
         <div class="container">
             <div class="about-container">
-                <div class="about-image fade-in">
-                    <img src="https://i.pinimg.com/736x/74/60/ff/7460ff20f74b3a4ba3c521462b2d4074.jpg" alt="Amrita Halaby">
-                </div>
-                
                 <div class="about-text">
-                    <div class="section-title" style="text-align: left; margin-bottom: 40px;">
-                        <h2>Meet Amrita Halaby</h2>
-                    </div>
-                    
-                    <p>Hi, I'm <span class="gold-text">Amrita Halaby</span>, a certified HeartMath coach and empowerment guide dedicated to helping individuals reclaim their power and consciously design their lives.</p>
-                    
-                    <p>My work bridges the profound wisdom of ancient spiritual traditions with the groundbreaking discoveries of modern neuroscience and quantum physics. This unique synthesis creates a powerful framework for transformation that addresses both the scientific and energetic dimensions of human potential.</p>
-                    
-                    <p>Through my coaching, you'll learn to understand how your thoughts, emotions, and beliefs literally shape your reality. We'll work together to create lasting change from the inside out, moving you from reacting to life's circumstances to intentionally designing your experience.</p>
-                    
-                    <p>My approach is grounded in compassion, science, and practical application. I provide a safe, nurturing space for exploration and growth, honoring your unique journey while guiding you toward the highest expression of yourself.</p>
-                    
-                    <div class="signature">With grace and presence,<br>Amrita Halaby</div>
+                    <h2>About Me</h2>
+                    <p>Hi, I'm <strong>Amrita Halaby</strong>, a certified HeartMath coach and empowerment guide. My work is rooted in neuroscience, energetic alignment, and the principles of Quantum Physics.</p>
+                    <p>I help you understand how your thoughts and awareness shape your reality. Through awareness, self-empowerment and embodied change, I walk you through a journey of remembering your true power so you can live consciously by design.</p>
+                    <p>My approach combines ancient wisdom with modern science to help you create lasting transformation from the inside out.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section class="approach-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>The Conscious Creation Framework</h2>
-                <p>A multi-dimensional approach to transformation</p>
-            </div>
-            
-            <div class="approach-container">
-                <div class="approach-card fade-in">
-                    <div class="approach-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Neuroscience Foundations</h3>
-                    <p>Understanding and rewiring neural pathways to create new patterns of thought, emotion, and behavior. We work with the brain's plasticity to install empowering beliefs.</p>
-                </div>
-                
-                <div class="approach-card fade-in">
-                    <div class="approach-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3>Quantum Principles</h3>
-                    <p>Applying quantum physics to understand how consciousness creates reality. Your focused awareness and intention directly influence what manifests in your experience.</p>
-                </div>
-                
-                <div class="approach-card fade-in">
-                    <div class="approach-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>HeartMath Techniques</h3>
-                    <p>Using scientifically validated methods to create heart-brain coherence, reducing stress and increasing intuitive intelligence for better decision-making.</p>
+                <div class="about-image">
+                    <img src="https://i.pinimg.com/736x/a9/0c/95/a90c959d81b6def4b1571bf775a1d199.jpg" alt="Amrita Halaby - Empowerment Coach">
                 </div>
             </div>
         </div>
@@ -822,41 +558,59 @@
     <!-- Journey Section -->
     <section class="journey-section">
         <div class="container">
-            <div class="journey-content">
-                <div class="section-title">
-                    <h2>Your Transformational Journey</h2>
-                    <p>A personalized path to conscious living</p>
+            <div class="section-title">
+                <h2>Your Coaching Journey</h2>
+                <p>A Path Tailored for You</p>
+            </div>
+            
+            <div class="journey-features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Personalized 1:1 Coaching</h3>
+                    <p>Focused entirely on your unique goals and journey. We work together online in a flexible schedule that fits your life.</p>
                 </div>
                 
-                <div class="journey-steps">
-                    <div class="step fade-in">
-                        <div class="step-number">1</div>
-                        <h3>Awareness</h3>
-                        <p>Identifying limiting patterns and beliefs that keep you stuck in cycles of struggle.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    
-                    <div class="step fade-in">
-                        <div class="step-number">2</div>
-                        <h3>Alignment</h3>
-                        <p>Bringing your thoughts, emotions, and energy into congruence with your desired outcomes.</p>
-                    </div>
-                    
-                    <div class="step fade-in">
-                        <div class="step-number">3</div>
-                        <h3>Integration</h3>
-                        <p>Installing new neural pathways and energetic patterns through consistent practice.</p>
-                    </div>
-                    
-                    <div class="step fade-in">
-                        <div class="step-number">4</div>
-                        <h3>Manifestation</h3>
-                        <p>Living from your authentic power and consciously creating your reality by design.</p>
-                    </div>
+                    <h3>Science-Based Approach</h3>
+                    <p>Understanding how your mind, emotions, and beliefs literally shape your reality through neuroscience and quantum principles.</p>
                 </div>
                 
-                <p>This is a 1:1 personalized coaching journey focused entirely on your unique goals and growth. We move beyond "wishing" and "hoping" to create permanent conscious inner shifts using practical tools based on neuroscience, quantum physics, and energetic alignment.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Practical Tools</h3>
+                    <p>Move beyond "wishing" and "hoping" with practical tools to create permanent conscious inner shifts that last.</p>
+                </div>
                 
-                <a href="#cta" class="btn" style="margin-top: 40px;">Explore the Journey</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Safe, Supportive Space</h3>
+                    <p>A non-judgemental space for you to explore, heal and grow at your own pace with compassionate guidance.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Live by Design</h3>
+                    <p>Move from "reacting" to intentionally creating your future and living your life by conscious design.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Lasting Transformation</h3>
+                    <p>Create deep, sustainable change that rewires your neural pathways for lasting personal growth and fulfillment.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -866,41 +620,48 @@
         <div class="container">
             <div class="foryou-container">
                 <div class="section-title">
-                    <h2>This Coaching Is For You If...</h2>
-                    <p>You're ready to move beyond surface-level change</p>
+                    <h2>This Coaching is for You if:</h2>
                 </div>
                 
                 <div class="foryou-list">
-                    <div class="foryou-item fade-in">
+                    <div class="foryou-item">
                         <div class="foryou-icon">
-                            <i class="fas fa-seedling"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3>You're Open to Growth</h3>
-                        <p>You value personal development and are willing to explore new perspectives on consciousness, energy, and reality creation.</p>
+                        <div>
+                            <h4>Open to Growth</h4>
+                            <p>You are open to personal growth and self-development</p>
+                        </div>
                     </div>
                     
-                    <div class="foryou-item fade-in">
+                    <div class="foryou-item">
                         <div class="foryou-icon">
-                            <i class="fas fa-anchor"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3>You Want Lasting Change</h3>
-                        <p>You're ready to move beyond temporary fixes and create deep, sustainable transformation at the root level.</p>
+                        <div>
+                            <h4>Seeking Lasting Change</h4>
+                            <p>You are seeking real and lasting change rather than quick fixes</p>
+                        </div>
                     </div>
                     
-                    <div class="foryou-item fade-in">
+                    <div class="foryou-item">
                         <div class="foryou-icon">
-                            <i class="fas fa-crown"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3>You're Ready to Transform</h3>
-                        <p>You feel called to discover your true power and step into the highest, most authentic version of yourself.</p>
+                        <div>
+                            <h4>Ready for Transformation</h4>
+                            <p>You are ready for inner transformation and discovering your true power</p>
+                        </div>
                     </div>
                     
-                    <div class="foryou-item fade-in">
+                    <div class="foryou-item">
                         <div class="foryou-icon">
-                            <i class="fas fa-pen-nib"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3>You Want to Live Consciously</h3>
-                        <p>You're ready to move from reacting to life circumstances to intentionally designing your reality with purpose and presence.</p>
+                        <div>
+                            <h4>Embody Your Highest Self</h4>
+                            <p>You want to embody the highest version of yourself and live consciously by design</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -911,13 +672,11 @@
     <section class="cta-section" id="cta">
         <div class="container">
             <div class="cta-content">
-                <div class="section-title">
-                    <h2>Begin Your Conscious Journey</h2>
-                    <p>Take the first step toward living intentionally. Book a free clarity call to explore how coaching can help you align with your highest potential.</p>
-                </div>
+                <h2>Ready to start your journey?</h2>
+                <p>Book a free clarity call to explore whether this coaching is a right fit for you. Let's connect and discuss how we can work together to create the transformation you're seeking.</p>
                 
                 <div class="form-container">
-                    <h3 style="text-align: center; margin-bottom: 30px;">Schedule Your Free Clarity Call</h3>
+                    <h3>Schedule Your Free Clarity Call</h3>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -930,17 +689,17 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number (Optional)</label>
                             <input type="tel" id="phone" class="form-control" placeholder="+1 (123) 456-7890">
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">What would you like to transform in your life?</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Share your intentions, challenges, and desired outcomes..."></textarea>
+                            <label for="message">What brings you to coaching? (Optional)</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Tell me a little about what you'd like to achieve through coaching..."></textarea>
                         </div>
                         
-                        <button type="submit" class="btn" style="width: 100%;">Request Free Clarity Call</button>
-                        <p style="margin-top: 20px; text-align: center; opacity: 0.8; font-size: 0.9rem;">You'll receive a confirmation email within 24 hours to schedule your complimentary session.</p>
+                        <button type="submit" class="btn">Send Request</button>
+                        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">You'll receive a confirmation email to schedule your free call.</p>
                     </form>
                 </div>
             </div>
@@ -952,20 +711,20 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-brand">
-                    <div class="footer-logo">Amrita Coaching</div>
+                    <div class="footer-logo">AMRITA COACHING</div>
                     <p class="footer-tagline">Living Consciously by Design</p>
-                    <p>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment, I guide you to bypass limiting patterns and unleash your inner power to create a life of purpose, presence, and authentic expression.</p>
+                    <p>Rooted in Neuroscience, Quantum Physics, and Energetic Alignment to help you unleash your inner power and live life on your own terms.</p>
                     
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>Connect With Me</h3>
+                    <h3>Contact</h3>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-envelope contact-icon"></i>
@@ -976,21 +735,24 @@
                             <span>+1 (555) 123-4567</span>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-globe contact-icon"></i>
-                            <span>Online Sessions Worldwide</span>
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span>Online Coaching Worldwide</span>
                         </div>
                     </div>
                     
-                    <a href="#cta" class="btn btn-secondary">Schedule Discovery Call</a>
+                    <a href="#cta" class="btn btn-secondary">Book Free Call</a>
                 </div>
             </div>
             
             <div class="disclaimer">
-                <p><strong>A Note for You:</strong> The guidance, coaching sessions, and resources provided through this website are for educational and personal development purposes only. They are not a substitute for professional medical, psychological, or financial advice. While the practices and tools shared are designed to support inner growth and conscious living, individual results may vary. By engaging with this site or enrolling in coaching, you acknowledge that outcomes depend on your choices and commitment. Coaching is offered to empower and support you, but no specific results are guaranteed. Your journey is unique — honor your pace and your path.</p>
+                <h4>A Note for You</h4>
+                <p>The guidance, coaching sessions, and resources provided through this website are for educational and personal development purposes only. They are not a substitute for professional medical, psychological, or financial advice.</p>
+                <p>While the practices and tools shared are designed to support inner growth and conscious living, individual results may vary. By engaging with this site or enrolling in coaching, you acknowledge that outcomes depend on your choices and commitment. Coaching is offered to empower and support you, but no specific results are guaranteed.</p>
+                <p>Your journey is unique — honor your pace and your path.</p>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2026 Amrita Coaching. All rights reserved. | Designed with intention</p>
+                <p>&copy; 2026 Amrita Coaching. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1006,20 +768,12 @@
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            // Show success message
-            const successHTML = `
-                <div style="text-align: center; padding: 30px;">
-                    <div style="font-size: 4rem; color: var(--gold); margin-bottom: 20px;">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 style="color: white;">Thank You, ${name}!</h3>
-                    <p>Your request for a free clarity call has been received. You will receive an email at <strong>${email}</strong> within 24 hours to schedule your session.</p>
-                    <p>Please check your inbox (and spam folder) for our response.</p>
-                    <button class="btn" onclick="this.parentElement.parentElement.innerHTML = document.querySelector('#contactForm').innerHTML; document.querySelector('#contactForm').addEventListener('submit', arguments.callee);" style="margin-top: 20px;">Send Another Message</button>
-                </div>
-            `;
+            // In a real implementation, you would send this data to your server
+            // For now, we'll just show a success message
+            alert(`Thank you, ${name}! Your request has been sent to Amrita. You will receive an email at ${email} to schedule your free clarity call.`);
             
-            document.getElementById('contactForm').innerHTML = successHTML;
+            // Reset form
+            document.getElementById('contactForm').reset();
             
             // In a real implementation, you would send the data via email or to a backend
             // Example using mailto (simple approach):
@@ -1031,15 +785,15 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    e.preventDefault();
-                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
@@ -1061,23 +815,33 @@
         }, observerOptions);
         
         // Observe elements for animation
-        document.querySelectorAll('.fade-in').forEach(el => {
+        document.querySelectorAll('.feature-card').forEach(el => {
             observer.observe(el);
         });
         
-        // Add staggered animation delays
-        document.querySelectorAll('.approach-card').forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.2}s`;
+        // Add animation to foryou items
+        document.querySelectorAll('.foryou-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
         });
         
-        document.querySelectorAll('.step').forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.2}s`;
-        });
+        // Animate foryou items when they come into view
+        const foryouObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if(entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
         
-        document.querySelectorAll('.foryou-item').forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.15}s`;
+        document.querySelectorAll('.foryou-item').forEach(el => {
+            foryouObserver.observe(el);
         });
     </script>
 </body>
 </html>
-
