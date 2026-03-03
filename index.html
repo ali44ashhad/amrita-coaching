@@ -739,21 +739,15 @@
       .about-section { 
         flex-direction: column-reverse; 
         text-align: left; 
-        gap: 40px;
-        margin: 150px 0 50px;
-        padding: 0 10px;
+        gap: 32px;
+        margin-top: 80px;
       }
       
       .about-section .small-img { 
-        width: 100%;
-        max-width: 320px;
+        flex: 0.8;
+        max-width: 100%;
         height: auto;
-        margin: 0 auto;
-        aspect-ratio: 9/11;
-        object-fit: cover;
-        object-position: center 35%;
-        display: block;
-        border-radius: 32px;
+        aspect-ratio: 1/1;
       }
       
       /* Smaller text in about section on mobile */
@@ -837,17 +831,6 @@
       .about-section div p { 
         font-size: 1rem !important; 
       }
-
-      /* Mobile image sizing for about section */
-      .about-section .small-img {
-        max-width: 280px;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 9/11;
-        object-position: center 35%;
-        margin: 0 auto;
-        display: block;
-      }
     }
 
     @media (max-width: 420px) {
@@ -861,19 +844,6 @@
       .footer-content { flex-direction: column; text-align: center; } 
       .header-contact { font-size: 1.6rem; }
       .wiring-image { height: 250px; }
-      
-      .about-section {
-        margin: 140px 0 40px;
-        gap: 30px;
-      }
-      
-      .about-section .small-img {
-        max-width: 260px;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 9/11;
-        object-position: center 35%;
-      }
     }
   </style>
 </head>
@@ -1052,40 +1022,140 @@
     </div>
   </div>
 
+  <!-- EmailJS Library - Official SDK -->
+  <script type="module">
+    import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm';
+    window.emailjs = emailjs;
+  </script>
+  
   <script>
-    (function() {
-      const bookBtn = document.getElementById('bookCallBtn');
-      const popup = document.getElementById('popupOverlay');
-      const closeBtn = document.getElementById('closePopupBtn');
+    console.clear();
+    console.log('========================================');
+    console.log('✅ Script file loaded');
+    console.log('========================================');
+
+    // Initialize after 2 seconds
+    setTimeout(function() {
+      initializeApp();
+    }, 2000);
+
+    function initializeApp() {
+      console.log('🚀 Starting initialization...');
+      
+      if (typeof emailjs !== 'undefined') {
+        console.log('✅ emailjs library loaded!');
+        try {
+          emailjs.init('ehbozUE8nqV5SISea');
+          console.log('✅ EmailJS initialized with public key');
+          window.emailjsReady = true;
+        } catch(err) {
+          console.error('❌ EmailJS init error:', err);
+          window.emailjsReady = false;
+        }
+      } else {
+        console.warn('⚠️ EmailJS library not loaded - fallback mode active');
+        window.emailjsReady = false;
+      }
+
+      setupForm();
+    }
+
+    function setupForm() {
       const form = document.getElementById('clarityForm');
+      const popup = document.getElementById('popupOverlay');
+      const bookBtn = document.getElementById('bookCallBtn');
+      const closeBtn = document.getElementById('closePopupBtn');
       const thankyou = document.getElementById('thankyouMsg');
 
-      bookBtn.addEventListener('click', function(e) {
+      if (!form || !popup || !bookBtn || !closeBtn || !thankyou) {
+        console.error('❌ Form elements not found!');
+        return;
+      }
+
+      console.log('✅ Form elements found');
+
+      bookBtn.onclick = function(e) {
         e.preventDefault();
+        console.log('📌 Book button clicked');
         popup.style.display = 'flex';
-        if (form.style.display === 'none') {
-          form.style.display = 'block';
-          thankyou.style.display = 'none';
-        }
+        form.style.display = 'block';
+        thankyou.style.display = 'none';
         form.reset();
-      });
+      };
 
-      function closePopup() { popup.style.display = 'none'; }
+      closeBtn.onclick = function() {
+        console.log('📌 Close clicked');
+        popup.style.display = 'none';
+      };
 
-      closeBtn.addEventListener('click', closePopup);
-      popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+      popup.onclick = function(e) {
+        if (e.target === popup) {
+          popup.style.display = 'none';
+        }
+      };
 
-      form.addEventListener('submit', function(e) {
+      form.onsubmit = function(e) {
         e.preventDefault();
-        form.style.display = 'none';
-        thankyou.style.display = 'block';
-        setTimeout(closePopup, 2000);
-      });
+        console.log('🚀 Form submitted');
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup.style.display === 'flex') closePopup();
-      });
-    })();
+        const name = form.elements[0].value.trim();
+        const phone = form.elements[1].value.trim();
+        const email = form.elements[2].value.trim();
+        const message = form.elements[3].value.trim();
+
+        console.log('Name:', name, 'Phone:', phone, 'Email:', email);
+
+        if (!name || !phone || !message) {
+          alert('⚠️ Please fill in all required fields');
+          return false;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Sending...';
+
+        const formData = {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message,
+          title: 'New Clarity Call Request'
+        };
+
+        if (!window.emailjsReady || typeof emailjs === 'undefined') {
+          console.log('⚠️ Using fallback - EmailJS not available');
+          form.style.display = 'none';
+          thankyou.style.display = 'block';
+          thankyou.innerHTML = '✨ Thanks! We\'ll connect soon via WhatsApp.';
+          setTimeout(function() {
+            popup.style.display = 'none';
+          }, 3000);
+          return false;
+        }
+
+        console.log('📧 Sending email with EmailJS...');
+
+        emailjs.send('service_6cf1pz9', 'template_stazwkk', formData)
+          .then(function(response) {
+            console.log('✅ Email sent!', response);
+            form.style.display = 'none';
+            thankyou.style.display = 'block';
+            setTimeout(function() {
+              popup.style.display = 'none';
+            }, 3000);
+          })
+          .catch(function(error) {
+            console.error('❌ Send error:', error);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request Call';
+            alert('Error: ' + (error.text || error.message || 'Failed'));
+          });
+
+        return false;
+      };
+
+      console.log('✅ Form setup complete!');
+    }
   </script>
 </body>
 </html>
