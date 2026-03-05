@@ -739,15 +739,21 @@
       .about-section { 
         flex-direction: column-reverse; 
         text-align: left; 
-        gap: 32px;
-        margin-top: 80px;
+        gap: 40px;
+        margin: 150px 0 50px;
+        padding: 0 10px;
       }
       
       .about-section .small-img { 
-        flex: 0.8;
-        max-width: 100%;
+        width: 100%;
+        max-width: 320px;
         height: auto;
-        aspect-ratio: 1/1;
+        margin: 0 auto;
+        aspect-ratio: 9/11;
+        object-fit: cover;
+        object-position: center 35%;
+        display: block;
+        border-radius: 32px;
       }
       
       /* Smaller text in about section on mobile */
